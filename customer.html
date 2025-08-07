@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon - Customer Service</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5eded;
+    }
+
+    /* Header */
+    .top-bar {
+      background-color: white;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    .top-bar a {
+      color: rgb(8, 6, 6));
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+
+    /* Customer Service Section */
+    .customer-service-section {
+      padding: 40px 20px;
+      background-color: rgb(247, 156, 156);
+    }
+
+    .customer-service-section h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .help-search {
+      display: flex;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .help-search input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .help-search button {
+      background-color: #febd69;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .help-topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .help-card {
+      background: #f3f3f3;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .help-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .help-card h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .help-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #232f3e;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="#Customer-Service">Customer Service</a>
+      <a href="orders.html">Orders</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </div>
+
+  <!-- Customer Service Section -->
+  <div id="Customer-Service" class="customer-service-section">
+    <h2>Customer Service</h2>
+
+    <!-- Search Help Bar -->
+    <div class="help-search">
+      <input type="text" placeholder="Search our help library..." />
+      <button>🔍</button>
+    </div>
+
+    <!-- Help Topics -->
+    <div class="help-topics">
+      <div class="help-card">
+        <h4>Track Your Order</h4>
+        <p>Find the status of your order using your order ID or mobile number.</p>
+      </div>
+      <div class="help-card">
+        <h4>Returns & Refunds</h4>
+        <p>Learn how to return items and track your refund status.</p>
+      </div>
+      <div class="help-card">
+        <h4>Account Settings</h4>
+        <p>Update your email, password, and shipping address.</p>
+      </div>
+      <div class="help-card">
+        <h4>Payment Issues</h4>
+        <p>Fix payment errors or failed transactions easily.</p>
+      </div>
+      <div class="help-card">
+        <h4>Prime Membership</h4>
+        <p>Manage and learn more about your Prime membership benefits.</p>
+      </div>
+      <div class="help-card">
+        <h4>Contact Us</h4>
+        <p>Reach out to our support team via phone or chat 24/7.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Amazon Clone. All rights reserved.
+  </div>
+  <!-- Amazon-like Footer -->
+<footer style="background-color: #232F3E; color: white; padding: 40px 20px; font-family: Arial, sans-serif;">
+  <div style="max-width: 1200px; margin: auto;">
+
+    <!-- Top Link Columns -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 30px; border-bottom: 1px solid #3a4553;">
+      <div>
+        <h4 style="margin-bottom: 15px;">Get to Know Us</h4>
+        <ul style="list-style: none; padding: 0; font-size: 14px;">
+          <li><a href="#" style="color: white; text-decoration: none;">About Amazon</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Careers</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Press Releases</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Amazon Science</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 15px;">Connect with Us</h4>
+        <ul style="list-style: none; padding: 0; font-size: 14px;">
+          <li><a href="#" style="color: white; text-decoration: none;">Facebook</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Twitter</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 15px;">Make Money with Us</h4>
+        <ul style="list-style: none; padding: 0; font-size: 14px;">
+          <li><a href="#" style="color: white; text-decoration: none;">Sell on Amazon</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Become an Affiliate</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Advertise Your Products</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Amazon Pay on Merchants</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 15px;">Let Us Help You</h4>
+        <ul style="list-style: none; padding: 0; font-size: 14px;">
+          <li><a href="#" style="color: white; text-decoration: none;">Your Account</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Returns Centre</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">100% Purchase Protection</a></li>
+          <li><a href="#" style="color: white; text-decoration: none;">Help</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Logo + Language / Country -->
+    <div style="text-align: center; padding: 30px 0;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" style="height: 30px; margin-bottom: 15px;">
+      <div style="margin-top: 10px;">
+        <button style="padding: 6px 10px; margin-right: 10px; background: #37475a; color: white; border: 1px solid #848688;">🌐 English</button>
+        <button style="padding: 6px 10px; background: #37475a; color: white; border: 1px solid #848688;">🇮🇳 India</button>
+      </div>
+    </div>
+
+    <!-- Extra Services Links -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; font-size: 12px; text-align: center; color: #ddd;">
+      <div>AbeBooks<br><span style="font-size: 11px;">Books, art<br>& collectibles</span></div>
+      <div>Amazon Web Services<br><span style="font-size: 11px;">Scalable Cloud<br>Computing Services</span></div>
+      <div>Audible<br><span style="font-size: 11px;">Download<br>Audio Books</span></div>
+      <div>IMDb<br><span style="font-size: 11px;">Movies, TV<br>& Celebrities</span></div>
+      <div>Shopbop<br><span style="font-size: 11px;">Designer<br>Fashion Brands</span></div>
+      <div>Amazon Business<br><span style="font-size: 11px;">Everything For<br>Your Business</span></div>
+      <div>Prime Now<br><span style="font-size: 11px;">2-Hour Delivery<br>on Everyday Items</span></div>
+      <div>Amazon Prime Music<br><span style="font-size: 11px;">100 million songs, ad-free<br>Over 15 million podcast episodes</span></div>
+    </div>
+
+    <!-- Copyright -->
+    <div style="text-align: center; margin-top: 30px; font-size: 12px; color: #ccc;">
+      &copy; 2025 Amazon Clone - All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>

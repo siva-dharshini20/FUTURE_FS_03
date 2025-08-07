@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon App Clone</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+    /* Top dark navbar */
+    .top-bar {
+      background-color: #131921;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    .location {
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .search-bar {
+      flex: 1;
+      display: flex;
+      max-width: 600px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .search-bar button {
+      background-color: #febd69;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: white;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    /* Main menu */
+    .main-menu {
+      background-color: #232f3e;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px 20px;
+      gap: 15px;
+    }
+
+    .main-menu a {
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .main-menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Submenu in green */
+    .sub-menu {
+      background-color: #b6e07d;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 20px;
+      gap: 15px;
+    }
+
+    .sub-menu a {
+      color: #111;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .sub-menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Delivery box */
+    .delivery {
+      padding: 20px;
+      background: rgb(16, 13, 13);
+      font-size: 18px;
+    }
+    html {
+  scroll-behavior: smooth;
+  html {
+  scroll-behavior: smooth;
+}
+
+}
+
+  .oval-cart-btn {
+    background-color: #febd69;
+    border: none;
+    color: #111;
+    padding: 10px 24px;
+    font-size: 14px;
+    border-radius: 50px; /* Oval shape */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .oval-cart-btn:hover {
+    background-color: #f3a847;
+    transform: scale(1.05);
+  }
+
+  .oval-cart-btn:active {
+    background-color: #e59400;
+    transform: scale(0.95);
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #f3a847;
+    transform: scale(1.05);
+  }
+
+  .add-to-cart-btn:active {
+    background-color: #e59400;
+    transform: scale(0.98);
+  }
+  .products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.deal-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background: #f0b79c;
+  justify-content: space-evenly;
+}
+
+.deal-card {
+  background: #eee4b1;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  gap: 10px;
+}
+
+.deal-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.deal-card img {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 8px;
+}
+
+.deal-card a {
+  color: #007185;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sub-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.sub-items img {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.sign-in-card {
+  background: #fff8d4;
+  text-align: center;
+}
+
+.sign-in-card button {
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+#Fashion {
+  margin-top: 40px;
+}
+.product-section {
+  margin-top: 40px;
+  gap: 20px;
+}
+.language-selector {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+
+
+
+</style>
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <!-- Top Header -->
+<div class="top-bar">
+  <div class="logo">
+    <img src="./logo1.jpg" alt="Amazon.in">
+  </div>
+
+  <div class="location" style="font-family: Arial, sans-serif; margin-bottom: 10px;">
+  <div id="deliveryText">Delivering to Chennai 600040</div>
+  <a href="#" onclick="updateLocation()" style="color: #00a8e1; cursor: pointer;">📍 Update location</a>
+</div>
+
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search Amazon.in" />
+    <button>🔍</button>
+  </div>
+
+  <div class="nav-right">
+    
+  
+<!-- Language Dropdown -->
+<div class="language-selector">
+  <button id="langBtn" onclick="toggleLangMenu()">🌐 EN ▼</button>
+  <div id="langDropdown" class="dropdown-content">
+   show <button onclick="selectLang('en')">English</button>
+    <button onclick="selectLang('hi')">हिन्दी</button>
+    <button onclick="selectLang('ta')">தமிழ்</button>
+  </div>
+</div>
+
+</div>
+
+
+    <!-- Account Button -->
+    <button class="nav-link" onclick="window.location.href='signin.html'" style="background: none; border: none; color: white; cursor: pointer;">
+      Hello, sign in<br><strong>Account & Lists</strong>
+    </button>
+
+    <!-- Cart Button -->
+    <button class="nav-link" onclick="window.location.href='cart.html'" style="background: none; border: none; color: white; cursor: pointer;">
+      🛒 Cart
+    </button>
+
+    <!-- Orders -->
+    <button class="nav-link" onclick="window.location.href='orders.html'" style="background: none; border: none; color: white; cursor: pointer;">
+      Orders & Returns
+    </button>
+
+    <!-- Transactions -->
+    <button class="nav-link" onclick="window.location.href='transaction.html'" style="background: none; border: none; color: white; cursor: pointer;">
+      Transaction
+    </button>
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- Main Menu -->
+  <div class="main-menu">
+    <a href="#">☰ All</a>
+    <a href="#electronics">electronics</a>
+    <a href="#mobiles">Mobiles</a>
+    <a href="#Fashion">Fashion</a>
+    <a href="#Grocery">Grocery</a>
+    <a href="customer.html">Customer Service</a>
+
+  </div>
+<div class="deal-section">
+  <div class="deal-card">
+    <h3>Up to 75% off | Electronics & Accessories</h3>
+    <img src="./ELEC.JPG" alt="Electronics">
+    <img src="./oven.jpg" alt="Electronics">
+    <a href="#electronics">See all offers</a>
+  </div>
+  <div class="deal-section">
+  <div class="deal-card">
+    <h3>Latest Versions| Mobiles</h3>
+    <img src="./oneplus.jpg" alt="Mobiles">
+    <img src="./moto.jpg" alt="Moto">
+    <a href="#mobiles">See all offers</a>
+  </div>
+
+  <div class="deal-card">
+    <h3>Up to 80% off | Fashion</h3>
+    <div class="sub-items">
+      <div>
+        <img src="./kurta.jpg" alt="Kurta">
+        <p>Stylish kurta set</p>
+      </div>
+      <div>
+        <img src="./saree.jpg" alt="Saree">
+        <p>Saree</p>
+      </div>
+      <div>
+        <img src="./shirt.jpg" alt="Mens Wear">
+        <p>Mens Wear</p>
+      </div>
+      <div>
+        <img src="./skirt.jpg" alt="kids collection">
+        <p>Kids Wear</p>
+      </div>
+    </div>
+    <a href="#Fashion">See all deals</a>
+  </div>
+<div class="deal-card">
+    <h3>Up to 50% off | Grocery</h3>
+    <div class="sub-items">
+      <div>
+        <img src="./biscuit.webp" alt="Biscuit">
+        <p>Biscuit</p>
+      </div>
+      <div>
+        <img src="./rice.jpg" alt="Rice">
+        <p>Rice</p>
+      </div>
+      <div>
+        <img src="./soap.webp" alt="Soap">
+        <p>Soap</p>
+      </div>
+      <div>
+        <img src="./dry.webp" alt="Dry Fruits">
+        <p>Dry Fruits</p>
+      </div>
+    </div>
+    <a href="#Grocery">Explore</a>
+  </div>
+  
+  </div>
+</div>
+
+  <!-- Delivery Content -->
+
+  <!-- Electronics Products Section -->
+   <div id="electronics" class="product-section" style="padding: 20px; background-color: #f0b79c;">
+
+<div class="product-section" style="padding: 20px;">
+  <h2 style="margin-bottom: 20px;">Electronics</h2>
+  <div class="products-grid">
+
+
+    <!-- Product Card 1 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./headphone.jpg" alt="Headphones" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Sony Wireless Headphones</h4>
+      <p>₹4,999</p>
+       <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product Card 2 -->
+    <div style="background: rgb(194, 107, 107); padding: 20px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./laptop.jpg" alt="Laptop" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">HP Laptop 15s</h4>
+      <p>₹39,999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+
+    <!-- Product Card 3 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./smart.jpg" alt="Smartwatch" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">boAt Xtend Smartwatch</h4>
+      <p>₹2,199</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product Card 4 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./canos.jpg" alt="Camera" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Canon EOS 200D DSLR</h4>
+      <p>₹52,999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <!-- Product Card 5 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./airpods.jpg" alt="bluetooth" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Bluetooth</h4>
+      <p>₹2,999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <!-- Product Card 6 -->
+        <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./ac.jpg" alt="Air Conditioner" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Air Conditioner</h4>
+      <p>₹2,999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <!-- Product Card 7-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./speaker.jpg" alt="Speaker" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Speaker</h4>
+      <p>₹12,999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <!-- Product Card 8 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./vaccum.jpg" alt="vaccum" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">vaccum</h4>
+      <p>₹30,000</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+    <!-- Product Card 9 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./oven.jpg" alt="oven" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">oven</h4>
+      <p>₹2,450</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+    <!-- Product Card 10 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./wm.jpg" alt="Washing Machine" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Washing Machine</h4>
+      <p>₹1,80,000</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+    </div>
+    </div>
+
+   
+    <!-- ✅ Separate Mobiles Section in Same Row Layout -->
+<div id="mobiles" class="product-section" style="padding: 20px;">
+  <h2 style="margin-bottom: 15px;">Mobiles</h2>
+  <div class="products-grid">
+
+    <!-- Product 1 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./iphone.jpg" alt="iphone" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">iPhone</h4>
+      <p>₹1,24,999</p>
+      <button style="background: #febd69; border: none; padding: 6px 10px;">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./samsung.jpg" alt="Samsung" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Samsung</h4>
+      <p>₹59,500</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./vivo.jpg" alt="Vivo" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Vivo</h4>
+      <p>₹72,199</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+
+    <!-- Product 4 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./moto.jpg" alt="Moto" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Moto</h4>
+      <p>₹52,999</p>
+     <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+     <!-- Product 5 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./realme.jpg" alt="realme" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">realme</h4>
+      <p>₹32,999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+     <!-- Product 5 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./oneplus.jpg" alt="oneplus" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">oneplus</h4>
+      <p>₹1,50,550</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+     <!-- Product 6 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./nothing.jpg" alt="nothing" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">nothing 3a</h4>
+      <p>₹35,000</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+    </div>
+  </div>
+</div>
+<div id="Fashion" class="product-section" style="padding: 20px;">
+  <h2 style="margin-bottom: 15px;">Fashion</h2>
+  <div class="products-grid">
+      
+    <!-- Product 1 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./saree.jpg" alt="Saree" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Saree</h4>
+      <p>₹2,000</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./chudi.webp" alt="Chudithar" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Chudithar</h4>
+      <p>₹1,200</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./western.jpg" alt="Long Shirt for Women" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Long Shirt for Women</h4>
+      <p>₹400</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product 4 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./wmen.jpg" alt="Casual Dress" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Casual Dress</h4>
+      <p>₹400</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <!-- Product 5 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./shirt.jpg" alt="Shirt" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Shirt</h4>
+      <p>₹680</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    
+<!-- Product 6 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./formals.jpg" alt="Formals" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Formals</h4>
+      <p>₹670</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    
+
+    <!-- Product 7-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./baggy.jpg" alt="Baggy Pant" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Baggy Pant</h4>
+      <p>₹999</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+        <!-- Product 8-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./tshirt.webp" alt="T-Shirt" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">T-Shirt</h4>
+      <p>₹399</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+     <!-- Product 9-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./skirt.jpg" alt="Tank Top and Cream Skirt" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Tank Top and Cream Skirt</h4>
+      <p>500</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+     <!-- Product 10-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./kurta.jpg" alt="Boys Ethnic Kurta Set" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Boys Ethnic Kurta Set</h4>
+      <p>₹259</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+     <!-- Product 11-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./frock.jpg" alt="Frock" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Frock</h4>
+      <p>₹1,200</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+    <!-- Product 12-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./western.jpg" alt="Western Wear" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Western Wear</h4>
+      <p>₹700</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+    <div id="Grocery" class="product-section" style="padding: 20px;">
+  <h2 style="margin-bottom: 15px;">Grocery</h2>
+  <div class="products-grid">
+
+    
+    <!-- Product 1 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./rice.jpg" alt="rice" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">1Kg rice</h4>
+      <p>₹450</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./biscuit.webp" alt="Biscuit" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Biscuit</h4>
+      <p>₹200</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+     <!-- Product 3 -->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./oil.webp" alt="oil" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">oil</h4>
+      <p>₹699</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+     <!-- Product 4-->
+    <div style="background: rgb(194, 107, 107); padding: 15px; width: 200px; border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <img src="./tea.webp" alt="Tea" style="width: 100%; height: auto;">
+      <h4 style="margin-top: 10px;">Tea</h4>
+      <p>₹99</p>
+      <button class="oval-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+
+
+    
+
+  </div>
+</div>
+<footer style="background-color: #232f3e; color: white; padding: 40px 20px; font-family: Arial, sans-serif;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1200px; margin: auto;">
+    <div>
+      <h4 style="color: #ffffff; text-align: center;" >Get to Know Us</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" style="color: #ddd; text-decoration: none; text-align: center;">About Us</a></li>
+        <p>Conditions of Use &nbsp; | &nbsp; Privacy Notice &nbsp; | &nbsp; Interest-Based </p>
+      
+      </ul>
+    </div>
+    
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #090909;">
+    © 2025 Amazon. All rights reserved.
+  </div>
+</footer>
+
+
+
+
+    </div>
+<script>
+  function addToCart() {
+    alert("✅ Item added to cart!");
+    // You can add more logic here (e.g., updating cart count)
+  }
+  const translations = {
+    en: {
+      header: "🧾 Transaction History",
+      order: "Order ID",
+      date: "Date",
+      amount: "Amount Paid",
+      payment: "Payment Mode",
+      status: "Status",
+      delivered: "Delivered"
+    },
+    hi: {
+      header: "🧾 लेन-देन इतिहास",
+      order: "ऑर्डर आईडी",
+      date: "तारीख",
+      amount: "भुगतान राशि",
+      payment: "भुगतान तरीका",
+      status: "स्थिति",
+      delivered: "डिलीवर किया गया"
+    },
+    ta: {
+      header: "🧾 பரிவர்த்தனை வரலாறு",
+      order: "ஆர்டர் ஐடி",
+      date: "தேதி",
+      amount: "செலுத்திய தொகை",
+      payment: "கட்டண முறை",
+      status: "நிலை",
+      delivered: "வழங்கப்பட்டது"
+    }
+  };
+
+  function toggleLangMenu() {
+    document.getElementById("langDropdown").classList.toggle("show");
+  }
+
+  function selectLang(lang) {
+    const t = translations[lang];
+    document.getElementById("langBtn").textContent =
+      lang === 'en' ? '🌐 EN ▼' :
+      lang === 'hi' ? '🌐 HI ▼' :
+      '🌐 TA ▼';
+
+    document.getElementById("headerText").textContent = t.header;
+    document.querySelector(".label-order").textContent = t.order + ":";
+    document.querySelector(".label-date").textContent = t.date + ":";
+    document.querySelector(".label-amount").textContent = t.amount + ":";
+    document.querySelector(".label-payment").textContent = t.payment + ":";
+    document.querySelector(".label-status").textContent = t.status + ":";
+    document.querySelector(".status").textContent = t.delivered;
+
+    document.getElementById("langDropdown").classList.remove("show");
+  }
+
+  window.onclick = function(e) {
+    if (!e.target.matches('#langBtn')) {
+      document.getElementById("langDropdown").classList.remove("show");
+    }
+  }
+  function updateLocation() {
+    const newLocation = prompt("Enter your new delivery location:");
+    if (newLocation && newLocation.trim() !== "") {
+      document.getElementById("deliveryText").textContent = "Delivering to " + newLocation.trim();
+    }
+  }
+</script>
+</script>
+</body>
+
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

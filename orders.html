@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orders & Returns - Amazon Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #131921; /* Amazon dark background */
+      color: white;
+      padding: 20px;
+    }
+
+    .orders-container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #232f3e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 28px;
+      border-bottom: 2px solid #febd69;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .order {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #444;
+    }
+
+    .order:last-child {
+      border-bottom: none;
+    }
+
+    .order img {
+      width: 100px;
+      border-radius: 6px;
+    }
+
+    .order-details {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .order-details h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .order-details p {
+      color: #febd69;
+      font-size: 14px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      background-color: #febd69;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #f3a847;
+    }
+
+    .back-btn {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .order {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .order img {
+        margin-bottom: 10px;
+      }
+
+      .order-details {
+        margin-left: 0;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="orders-container">
+    <!-- Back to Home -->
+    <button class="btn back-btn" onclick="goHome()">⬅ Back to Home</button>
+
+    <h1>Your Orders & Returns</h1>
+
+    <!-- Order 1 -->
+    <div class="order">
+      <img src="iphone.jpg" alt="iPhone">
+      <div class="order-details">
+        <h3>iPhone 15 Pro Max</h3>
+        <p>Ordered on: July 28, 2025<br>Status: Delivered</p>
+      </div>
+      <button class="btn" onclick="alert('Return request submitted!')">Return</button>
+    </div>
+
+    <!-- Order 2 -->
+    <div class="order">
+      <img src="laptop.jpg" alt="Laptop">
+      <div class="order-details">
+        <h3>HP Laptop 15s</h3>
+        <p>Ordered on: July 20, 2025<br>Status: Delivered</p>
+      </div>
+      <button class="btn" onclick="alert('Return request submitted!')">Return</button>
+    </div>
+
+    <!-- Order 3 -->
+    <div class="order">
+      <img src="western.jpg" alt="Dress">
+      <div class="order-details">
+        <h3>Western Dress</h3>
+        <p>Ordered on: August 2, 2025<br>Status: In Transit</p>
+      </div>
+      <button class="btn" onclick="alert('Return not available until delivery')">Return</button>
+    </div>
+
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html"; // Change to your home page path
+    }
+  </script>
+
+</body>
+</html>
